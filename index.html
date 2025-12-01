@@ -122,8 +122,8 @@
     nav {
       margin-top: 1.8rem;
     }
-
-nav a {
+    nav a {
+  position: relative;        /* REQUIRED for underline to appear */
   margin: 0 0.9rem;
   font-size: 0.92rem;
   text-transform: uppercase;
@@ -135,20 +135,21 @@ nav a {
   transition: background 0.15s ease, color 0.15s ease;
 }
 
-/* Hover + underline indicator */
+/* Hover pill background */
 nav a:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   color: #ffffff;
 }
 
+/* Underline animation */
 nav a::after {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -3px;
+  bottom: -4px;                /* nudged down slightly */
   width: 0;
   height: 2px;
-  background: #22c55e;
+  background: #22c55e;         /* lime/green highlight */
   border-radius: 999px;
   transform: translateX(-50%);
   transition: width 0.18s ease-out;
