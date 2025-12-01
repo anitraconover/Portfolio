@@ -5,6 +5,10 @@
   <title>Amanda Hoffman | GIS Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="GIS portfolio showcasing projects in spatial analysis, web mapping, and cartography." />
+
+  <!-- Sans-serif font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
     /* Basic Reset */
     *, *::before, *::after {
@@ -12,12 +16,15 @@
       margin: 0;
       padding: 0;
     }
+
     body {
-  background: #f5f5f5;
-  background-image: linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f5f5f5;
+      background-image: linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
     a {
       color: #0066cc;
       text-decoration: none;
@@ -118,13 +125,43 @@
     }
 
     .project-card {
+      perspective: 1000px;
+      height: 100%;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
       border-radius: 12px;
       border: 1px solid #e5e7eb;
-      padding: 1rem 1.1rem 1.2rem;
       background: #f9fafb;
+      transition: transform 0.5s ease;
+      transform-style: preserve-3d;
+    }
+
+    .project-card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      inset: 0;
+      padding: 1rem 1.1rem 1.2rem;
+      backface-visibility: hidden;
+      border-radius: 12px;
       display: flex;
       flex-direction: column;
-      height: 100%;
+    }
+
+    .card-front {
+      background: #f9fafb;
+    }
+
+    .card-back {
+      background: #1e293b;
+      color: #f9fafb;
+      transform: rotateY(180deg);
     }
 
     .project-card h3 {
@@ -133,12 +170,20 @@
       color: #111827;
     }
 
+    .card-back h3 {
+      color: #e5e7eb;
+    }
+
     .project-meta {
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: #6b7280;
       margin-bottom: 0.4rem;
+    }
+
+    .card-back .project-meta {
+      color: #9ca3af;
     }
 
     .project-card p {
@@ -150,6 +195,14 @@
     .project-links a {
       font-size: 0.88rem;
       margin-right: 0.75rem;
+    }
+
+    .card-back .project-links a {
+      color: #bfdbfe;
+    }
+
+    .card-back .project-links a:hover {
+      text-decoration: underline;
     }
 
     /* Resume & Contact */
@@ -267,46 +320,81 @@
     <section id="projects">
       <h2>Selected Projects</h2>
       <p style="font-size:0.92rem; margin-bottom:0.75rem;">
-        Click through to view live web maps, StoryMaps, or GitHub repositories.
+        Hover over each card to see more details, or click through to view the live web maps and code.
       </p>
 
       <div class="projects-grid">
-        <!-- PROJECT 1 -->
+        <!-- Sweet Sorghum -->
         <article class="project-card">
-          <h3>PROJECT TITLE 1</h3>
-          <div class="project-meta">Course / Role • Year</div>
-          <p>
-            Example project
-          </p>
-          <div class="project-links">
-            <a href="LINK_TO_WEBMAP_OR_STORYMAP" target="_blank">View Map</a>
-            <a href="LINK_TO_REPORT_OR_GITHUB" target="_blank">Details</a>
+          <div class="card-inner">
+            <!-- FRONT -->
+            <div class="card-face card-front">
+              <h3>Sweet Sorghum Suitability Web App</h3>
+              <div class="project-meta">Research • 2025</div>
+              <p>
+                Interactive web map exploring where sweet sorghum can thrive using climate, soils, and land suitability data.
+              </p>
+              <div class="project-links">
+                <a href="https://umn.maps.arcgis.com/apps/mapviewer/index.html?webmap=3559938ad0e34adeb9d9551022e6c84f" target="_blank">
+                  View App
+                </a>
+                <a href="https://github.com/ahoffman003/Sweet-Sorghum-Analysis.git" target="_blank">
+                  GitHub
+                </a>
+              </div>
+            </div>
+
+            <!-- BACK -->
+            <div class="card-face card-back">
+              <h3>Sweet Sorghum Suitability Web App</h3>
+              <div class="project-meta">Spatial Modeling • Web GIS</div>
+              <p>
+                Built a suitability model integrating Daymet climate data, soil characteristics, and land cover, then published
+                an ArcGIS Online web app to support exploratory analysis of potential bioenergy crop locations.
+              </p>
+              <div class="project-links">
+                <a href="https://umn.maps.arcgis.com/apps/mapviewer/index.html?webmap=3559938ad0e34adeb9d9551022e6c84f" target="_blank">
+                  Open Web App
+                </a>
+                <a href="https://github.com/ahoffman003/Sweet-Sorghum-Analysis.git" target="_blank">
+                  View Code on GitHub
+                </a>
+              </div>
+            </div>
           </div>
         </article>
 
-        <!-- PROJECT 2 -->
+        <!-- NCT Trail Project -->
         <article class="project-card">
-          <h3>PROJECT TITLE 2</h3>
-          <div class="project-meta">Course / Role • Year</div>
-          <p>
-            Example Project
-          </p>
-          <div class="project-links">
-            <a href="LINK_TO_WEBMAP_OR_STORYMAP" target="_blank">View Map</a>
-            <a href="LINK_TO_REPORT_OR_GITHUB" target="_blank">Details</a>
-          </div>
-        </article>
+          <div class="card-inner">
+            <!-- FRONT -->
+            <div class="card-face card-front">
+              <h3>North Country Trail Planning Map</h3>
+              <div class="project-meta">Client Project • 2025</div>
+              <p>
+                Interactive planning map supporting corridor analysis, data review, and collaboration with the North Country Trail Association.
+              </p>
+              <div class="project-links">
+                <a href="https://umn.maps.arcgis.com/apps/mapviewer/index.html?webmap=32dca35e3a074c2a823a45491df8cbeb" target="_blank">
+                  View Map
+                </a>
+              </div>
+            </div>
 
-        <!-- PROJECT 3 -->
-        <article class="project-card">
-          <h3>PROJECT TITLE 3</h3>
-          <div class="project-meta">Course / Role • Year</div>
-          <p>
-            Example Project
-          </p>
-          <div class="project-links">
-            <a href="LINK_TO_WEBMAP_OR_STORYMAP" target="_blank">View Map</a>
-            <a href="LINK_TO_REPORT_OR_GITHUB" target="_blank">Details</a>
+            <!-- BACK -->
+            <div class="card-face card-back">
+              <h3>North Country Trail Planning Map</h3>
+              <div class="project-meta">Environmental GIS • Collaboration</div>
+              <p>
+                Helped design a web-based map to visualize trail alignments, land ownership, and environmental constraints to
+                support stakeholder conversations, data collection planning, and iterative route refinement.
+              </p>
+              <div class="project-links">
+                <a href="https://umn.maps.arcgis.com/apps/mapviewer/index.html?webmap=32dca35e3a074c2a823a45491df8cbeb" target="_blank">
+                  Open Planning Map
+                </a>
+              </div>
+            </div>
           </div>
         </article>
       </div>
@@ -325,7 +413,7 @@
     <section id="contact" class="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:ajd.hoffman@gmail.com">ajd.hoffman@gmail.com</a></p>
-      <p>LinkedIn: <a href="Yhttps://www.linkedin.com/in/amanda-hoffman-7b1b8215b/" target="_blank">View my LinkedIn profile</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/amanda-hoffman-7b1b8215b/" target="_blank">View my LinkedIn profile</a></p>
     </section>
   </main>
 
