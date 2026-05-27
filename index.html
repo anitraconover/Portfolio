@@ -274,23 +274,32 @@ nav a:hover::after {
     .project-card img {
       width: 100%;
       height: auto;
-      object-fit: cover; /* Keeps things looking sharp */
+      object-fit: cover;
 }
 
+
+.project-card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 0; 
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+}
+
+/* 2. ADDED THIS NEW CLASS to handle the text padding instead */
+.project-content {
+  padding: 1.25rem 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Ensures the links stay pushed to the bottom */
+}
     
-    .project-card {
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      border-radius: 14px;
-      padding: 1.25rem 1.25rem 1.5rem;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
-    }
 
     .project-card::before {
       content: "";
@@ -643,6 +652,7 @@ nav a:hover::after {
 
           <!-- Aquifer Locator -->
           <article class="project-card">
+            <img src="aquifer-locator.jpg" alt="Aquifer Locator Project Screenshot">      
             <div class="project-pill">
               <span class="project-pill-dot"></span>
               Water &amp; Irrigation
