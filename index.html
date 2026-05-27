@@ -271,35 +271,33 @@ nav a:hover::after {
   }
 }
 
-
-    .project-card img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
+.project-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
-
- .project-card {
-    background: #f9fafb;
-    border: 1px solid #e5e7eb;
-    border-radius: 14px;
-    padding: 0; 
-    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
-}
-
-.project-content {
-  padding: 1.25rem 1.25rem 1.5rem;
+.project-card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 0; /* MODIFIED: Changed from 1.25rem 1.25rem 1.5rem to 0 to let the image touch the borders */
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
 }
 
+
+.project-content {
+  padding: 1.25rem 1.25rem 1.5rem; /* NEW LINE: Restores the text buffer */
+  display: flex;                   /* NEW LINE: Layout alignment for internal text */
+  flex-direction: column;          /* NEW LINE: Keeps text stacked vertically */
+  flex-grow: 1;                    /* NEW LINE: Pushes project links to the very bottom */
+}
     
 
     .project-card::before {
@@ -653,11 +651,11 @@ nav a:hover::after {
 
           <!-- Aquifer Locator -->
           <article class="project-card">
-            <img src="aquifer-project.jpg" alt="Aquifer Locator Project Screenshot"> <div class="project-pill">
+            <img src="aquifer-project.jpg" alt="Aquifer Locator Project Screenshot"> <div class="project-content"> <div class="project-pill">
               <span class="project-pill-dot"></span>
               Water &amp; Irrigation
             </div>
-             <h3>Aquifer Locator</h3>
+            <h3>Aquifer Locator</h3>
             <div class="project-meta">Class Project • 2025</div>
             <p>
               The closest water source to you may not actually be a lake or a river. It could be below ground in an aquifer! 
